@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Pokemon = require("./pokemonModel.js");
-const { restrict } = require("../auth/authMiddleware.js/index.js");
+const { restrict } = require("../auth/authMiddleware.js");
 
 router.get("/", restrict, (req, res) => {
   Pokemon.getPokemon()
@@ -27,13 +27,24 @@ router.get("/:id", restrict, async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", restrict, async (req, res) => {
   await Pokemon.add(req.body)
     .then(pokemon => {
       res.status(201).json(pokemon);
     })
     .catch(err => {
       res.status(500).json({ message: "Pokemon could not be added" });
+    });
+});
+
+router.delete("/:id", restrict, (req, res) => {
+  const { id } = req.params;
+  Pokemon.remove(id)
+    .then(deleted => {
+      res.status(204).json({ message: "Pokemon was successfully deleted" });
+    })
+    .catch(error => {
+      res.status(500).json({ error: "Pokemon couldn't be deleted" });
     });
 });
 
