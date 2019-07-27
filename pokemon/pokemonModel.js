@@ -9,7 +9,7 @@ module.exports = {
 };
 
 async function insert(pokemon) {
-  return db("pokemon").insert(pokemon, "id");
+  return await db("pokemon").insert(pokemon, "id");
 }
 
 async function update(id, changes) {
@@ -27,5 +27,7 @@ function getPokemon() {
 }
 
 function findById(id) {
-  return null;
+  return db("pokemon")
+    .first()
+    .where("pokemon.id", id);
 }

@@ -14,7 +14,7 @@ function restrict(req, res, next) {
       if (err) {
         res.status(401).json({ message: "Invalid Credentials" });
       } else {
-        req.jwtToken = decodedToken;  // this may need to be deleted
+        req.jwtToken = decodedToken; // this may need to be deleted
         next();
       }
     });
