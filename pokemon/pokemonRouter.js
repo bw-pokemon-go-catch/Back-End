@@ -28,7 +28,7 @@ router.get("/:id", restrict, async (req, res) => {
 });
 
 router.post("/", restrict, async (req, res) => {
-  await Pokemon.add(req.body)
+  await Pokemon.insert(req.body)
     .then(pokemon => {
       res.status(201).json(pokemon);
     })
