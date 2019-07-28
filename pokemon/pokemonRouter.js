@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Pokemon = require("./pokemonModel.js");
 const { restrict } = require("../auth/authMiddleware.js");
 
-router.get("/", restrict, (req, res) => {
+router.get("/", (req, res) => {
   Pokemon.getPokemon()
     .then(pokemon => {
       res.status(200).json(pokemon);
