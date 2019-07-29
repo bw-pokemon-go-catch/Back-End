@@ -3,16 +3,16 @@ exports.up = function(knex) {
     tbl.increments();
 
     tbl
-      .string("Pokemon No", 256)
+      .string("PokemonNo", 256)
       .notNullable()
       .unique();
 
     tbl.string("Name", 300).notNullable();
-    tbl.string("Type 1", 300).notNullable();
-    tbl.string("Type 2", 300);
-    tbl.integer("Max CP", 300).notNullable();
-    tbl.integer("Max HP", 300).notNullable();
-    tbl.string("Image URL", 500).notNullable();
+    tbl.string("Type1", 300).notNullable();
+    tbl.string("Type2", 300);
+    tbl.integer("MaxCP", 300).notNullable();
+    tbl.integer("MaxHP", 300).notNullable();
+    tbl.string("ImageURL", 500).notNullable();
   });
 };
 
