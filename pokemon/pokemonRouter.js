@@ -48,4 +48,18 @@ router.delete("/:id", restrict, (req, res) => {
     });
 });
 
+router.put("/:id", restrict, async (req, res) => {
+  try {
+    const pokemon = await Pokemon.update(req.params.id, req.body);
+    if (pokemon) {
+      res.status(200).json({ message: "Pokemon updated!" });
+    } else {
+      res.status(404).json({ message: "Pokemon could not be found!" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json(error);
+  }
+});
+
 module.exports = router;
