@@ -12,8 +12,10 @@ async function insert(pokemon) {
   return await db("pokemon").insert(pokemon, "id");
 }
 
-async function update(id, changes) {
-  return null;
+function update(id, changes) {
+  return db("pokemon")
+    .where({ id })
+    .update(changes);
 }
 
 function remove(id) {
