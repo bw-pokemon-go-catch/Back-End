@@ -2,10 +2,10 @@
 
 ## Table of Contents
 
-* [Overview] (#overview)
-* Tech Stack
-* API Endpoints
-* Credits
+**[Overview](#overview)**<br>
+**[Tech Stack](#tech-stack)**<br>
+**[API Endpoints](#api-endpoints)**<br>
+**[Credits](#credits)**<br>
 
 ## <a name='overview'></a>Overview 
 This app allows users to login, look at all Pokemon in the database.  Logged in users can add/delete/edit Pokemon.  Based on the data displayed by the front-end, users are able to determine whether or not a Pokemon is worth catching.
